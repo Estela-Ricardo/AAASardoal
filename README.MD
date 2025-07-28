@@ -86,6 +86,7 @@ npm install
 # Iniciar o servidor de desenvolvimento
 npm run dev
 
+```
 
 
 ## 🖼️ Capturas de Ecrã
