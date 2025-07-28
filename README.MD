@@ -91,7 +91,10 @@ npm run dev
 
 ## 🖼️ Capturas de Ecrã
 
-![Login](./public/0l.png) ![Login2](./public/0d.png)
+<p float="left">
+  <img src="./public/0l.png" width="200" />
+  <img src="./public/0d.png" width="200" />
+</p>
 ![Criar Associados](./public/1l.png)
 ![Gestão de Eventos](./public/1d.png)
 ![Edição de Evento](./public/2l.png)
@@ -101,14 +104,11 @@ npm run dev
 
 ## 👥 Autores
 
-<div align="center">
+| Nome              | GitHub                            | LinkedIn                         |
+|-------------------|---------------------------------|---------------------------------|
+| Estela Ricardo    | [![GitHub](https://cdn.simpleicons.org/github/000?width=20)](https://github.com/Estela-Ricardo) | [![LinkedIn](https://cdn.simpleicons.org/linkedin/0A66C2?width=20)](https://linkedin.com/in/estelaricardo) |
+| Joana Barroqueiro | [![GitHub](https://cdn.simpleicons.org/github/000?width=20)](https://github.com/joanabb)          | [![LinkedIn](https://cdn.simpleicons.org/linkedin/0A66C2?width=20)](https://linkedin.com/in/joanabarbosab)   |
 
-| Nome               | <img src="https://cdn.simpleicons.org/github/000" width="20"/> GitHub                                          | <img src="https://cdn.simpleicons.org/linkedin/0A66C2" width="20"/> LinkedIn                                               |
-|--------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Estela Ricardo     | [@Estela-Ricardo](https://github.com/Estela-Ricardo)                                                          | [linkedin.com/in/estelaricardo](https://www.linkedin.com/in/estelaricardo/)                                                 |
-| Joana Barroqueiro  | [@joanabb](https://github.com/joanabb)                                                                         | [linkedin.com/in/joanabarbosab](https://www.linkedin.com/in/joanabarbosab/)                                                 |
-
-</div>
 
 ## 📜 Licença
 
