@@ -111,7 +111,7 @@ npm run dev
 
 
 ## 📜 Licença
-
+<div align="center">
 MIT © 2025 — Projeto educativo sem fins lucrativos.
-
+</div>
 <div align="center">Feito com ❤️ para ajudar a ajudar.</div>
