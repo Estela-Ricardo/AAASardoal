@@ -102,12 +102,14 @@ npm run dev
 ![Operação em Lista Associado](./public/3l.png)
 
 
-## 👥 Autores
+## 👥 Autoria
 
-| Nome              | GitHub                            | LinkedIn                         |
-|-------------------|---------------------------------|---------------------------------|
-| Estela Ricardo    | [![GitHub](https://cdn.simpleicons.org/github/000?width=20)](https://github.com/Estela-Ricardo) | [![LinkedIn](https://cdn.simpleicons.org/linkedin/0A66C2?width=20)](https://linkedin.com/in/estelaricardo) |
-| Joana Barroqueiro | [![GitHub](https://cdn.simpleicons.org/github/000?width=20)](https://github.com/joanabb)          | [![LinkedIn](https://cdn.simpleicons.org/linkedin/0A66C2?width=20)](https://linkedin.com/in/joanabarbosab)   |
+
+**Estela Ricardo**  
+[LinkedIn](https://linkedin.com/in/estelaricardo) | [GitHub](https://github.com/Estela-Ricardo)
+
+**Joana Barroqueiro**  
+[LinkedIn](https://linkedin.com/in/joanabarbosab) | [GitHub](https://github.com/joanabb)
 
 
 ## 📜 Licença
