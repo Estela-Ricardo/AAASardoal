@@ -91,7 +91,7 @@ npm run dev
 
 ## 🖼️ Capturas de Ecrã
 
-![Login](./public/0l.png)(./public/0d.png)
+![Login](./public/0l.png)![Login](./public/0d.png)
 ![Criar Associados](./public/1l.png)
 ![Gestão de Eventos](./public/1d.png)
 ![Edição de Evento](./public/2l.png)
