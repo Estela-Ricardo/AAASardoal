@@ -61,7 +61,41 @@ const authProvider: AuthBindings = {
       },
     };
   },
-  
+  // register: async ({ email, password }) => {
+  //   try {
+  //     const { data, error } = await supabaseClient.auth.signUp({
+  //       email,
+  //       password,
+  //     });
+
+  //     if (error) {
+  //       return {
+  //         success: false,
+  //         error,
+  //       };
+  //     }
+
+  //     if (data) {
+  //       return {
+  //         success: true,
+  //         redirectTo: "/",
+  //       };
+  //     }
+  //   } catch (error: any) {
+  //     return {
+  //       success: false,
+  //       error,
+  //     };
+  //   }
+
+  //   return {
+  //     success: false,
+  //     error: {
+  //       message: "Register failed",
+  //       name: "Invalid email or password",
+  //     },
+  //   };
+  // },
   forgotPassword: async ({ email }) => {
     try {
       const { data, error } = await supabaseClient.auth.resetPasswordForEmail(
@@ -191,6 +225,18 @@ const authProvider: AuthBindings = {
 
     return null;
   },
+  // getIdentity: async () => {
+  //   const { data } = await supabaseClient.auth.getUser();
+
+  //   if (data?.user) {
+  //     return {
+  //       ...data.user,
+  //       name: data.user.email,
+  //     };
+  //   }
+
+  //   return null;
+  // },
 
   getIdentity: async () => {
   const {
@@ -207,7 +253,7 @@ const authProvider: AuthBindings = {
 
   const fullName = userProfile?.name ?? user.email;
 
-  const firstName = fullName?.split(" ")[0]; // ← gets first name
+  const firstName = fullName?.split(" ")[0]; // ← aqui vai buscar só o primeiro nome
 
   return {
     id: user.id,

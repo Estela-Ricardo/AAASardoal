@@ -11,7 +11,7 @@ import { useInvalidate } from "@refinedev/core";
 
 export const VolunteerList = () => {
   const { dataGridProps } = useDataGrid({
-    resource: "volunteers_full", // view with combined data
+    resource: "volunteers_full", // view com dados combinados
   });
 
   const invalidate = useInvalidate();

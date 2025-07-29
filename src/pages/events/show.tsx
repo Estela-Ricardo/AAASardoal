@@ -1,4 +1,5 @@
 // src/pages/events/show.tsx
+
 import {
   Show,
   TextFieldComponent as TextField,

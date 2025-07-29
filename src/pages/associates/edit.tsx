@@ -32,10 +32,11 @@ export const AssociateEdit = () => {
 
   const { mutate: updateUser } = useUpdate();
   const { mutate: updateAssociate } = useUpdate();
+  //const { mutate: updateVolunteer } = useUpdate();
 
   const record = data?.data;
 
-  // Fill form with existing data
+  // Preencher formulário com dados existentes
   useEffect(() => {
     if (record) {
       setValue("name", record.user?.name ?? "");
@@ -56,7 +57,7 @@ export const AssociateEdit = () => {
       updateUser(
         {
           resource: "user",
-          id: record?.user?.id,
+          id: record.user.id,
           values: {
             nif: data.nif,
             name: data.name,
@@ -79,7 +80,7 @@ export const AssociateEdit = () => {
       updateAssociate(
         {
           resource: "associates",
-          id: record?.id,
+          id: record.id,
           values: {
             quotastatus: data.quotastatus,
           },

@@ -8,7 +8,7 @@ export const Home = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowSecondGif(true);
-    }, 3000); // 3 seconds
+    }, 3000); // 3 segundos
 
     return () => clearTimeout(timeout);
   }, []);

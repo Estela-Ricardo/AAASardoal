@@ -12,7 +12,7 @@ import { useInvalidate } from "@refinedev/core";
 
 export const AssociateList = () => {
   const { dataGridProps } = useDataGrid({
-    resource: "associates_full", // View with combined data
+    resource: "associates_full", // View com dados combinados
   });
 
   const invalidate = useInvalidate();
@@ -85,7 +85,7 @@ export const AssociateList = () => {
     <List resource="associates">
       <DataGrid
         {...dataGridProps}
-        getRowId={(row) => row.id} // important to keep the correct ID from the associates table
+        getRowId={(row) => row.id} // importante para manter ID correto da tabela associates
         columns={columns}
         autoHeight
       />

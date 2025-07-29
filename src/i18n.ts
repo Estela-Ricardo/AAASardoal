@@ -112,7 +112,7 @@ export const i18nProvider: I18nProvider = {
             }
             return translation;
         }
-        // Stringifies it (e.g: array or object)
+        // Se não for string, converte para string (ex: array ou object)
         return String(translation) || defaultMessage || key;
     },
     changeLocale: (lang: string) => i18n.changeLanguage(lang),

@@ -1,5 +1,6 @@
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
 import { ptPT } from "@mui/x-data-grid/locales";
+import { useMany } from "@refinedev/core";
 import {
   DeleteButton,
   EditButton,

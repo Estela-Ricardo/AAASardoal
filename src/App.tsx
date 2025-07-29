@@ -120,6 +120,15 @@ function App() {
                       canDelete: true,
                     },
                   },
+                  // {
+                  //   name: "events_full",
+                  //   list: "/events",
+                  //   meta: {
+                  //     label: "Eventos",
+                  //     icon: <EventAvailableOutlinedIcon/>,
+                  //     canDelete: false,
+                  //   },
+                  // },
                   {
                     name: "events",
                     list: "/events",
@@ -132,6 +141,15 @@ function App() {
                       canDelete: true,
                     },
                   },
+                  // {
+                  //   name: "feedaidrequests_full",
+                  //   list: "/feedaidrequests",
+                  //   meta: {
+                  //     label: "Pedidos de Apoio",
+                  //     icon: <SosOutlinedIcon/>,
+                  //     canDelete: false,
+                  //   },
+                  // },
                   {
                     name: "feedaidrequests",
                     list: "/feedaidrequests",
@@ -141,6 +159,7 @@ function App() {
                     meta: {
                       label: "Pedidos de Apoio",
                       icon: <SosOutlinedIcon />,
+                      // icon: <InterestsOutlinedIcon/>,
                       canDelete: true,
                     },
                   },
@@ -170,6 +189,7 @@ function App() {
                   >
                     <Route
                       index
+                      // element={<NavigateToResource resource="associates" />}
                       element={<Home />}
                     />
                     <Route path="/associates">
@@ -196,6 +216,13 @@ function App() {
                       <Route path="edit/:id" element={< FeedAidRequestEdit />} />
                       <Route path="show/:id" element={< FeedAidRequestShow />} />
                     </Route>
+                    {/*   Duplicado caso Atividades de Voluntários   
+                    <Route path="/volunteers">
+                      <Route index element={<VolunteerList />} />
+                      <Route path="create" element={<VolunteerCreate />} />
+                      <Route path="edit/:id" element={<VolunteerEdit />} />
+                      <Route path="show/:id" element={<VolunteerShow />} />
+                    </Route> */}
                     <Route path="*" element={<ErrorComponent />} />
                   </Route>
                   <Route
@@ -208,7 +235,7 @@ function App() {
                       </Authenticated>
                     }
                   >
-                    {/* Public routes - ATTENTION!!! */}
+                    {/* Rotas públicas - ATTENTION!!! */}
                     <Route
                       path="/login"
                       element={
@@ -218,13 +245,17 @@ function App() {
 
                           formProps={{
                             defaultValues: {
-                              email: "info@refine.dev",
-                              password: "refine-supabase",
+                              email: "estelaricardo@sapo.pt",
+                              password: "12345",
                             },
                           }}
                         />
                       }
                     />
+                    {/* <Route
+                      path="/register"
+                      element={<AuthPage type="register" />}
+                    /> */}
                     <Route
                       path="/forgot-password"
                       element={<AuthPage type="forgotPassword" />}

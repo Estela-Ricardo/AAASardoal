@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Edit } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
-import { useList, useCreate, useDeleteMany } from "@refinedev/core";
+import { useList, useOne, useCreate, useDeleteMany } from "@refinedev/core";
 
 export const EventEdit = () => {
   const {
@@ -25,7 +25,7 @@ export const EventEdit = () => {
 
   const [selectedVolunteers, setSelectedVolunteers] = useState<number[]>([]);
 
-  // Fetch all volunteers
+  // Buscar todos os voluntários
   const { data: volunteersData } = useList({
     resource: "volunteers",
     meta: {
@@ -33,8 +33,7 @@ export const EventEdit = () => {
     },
   });
 
-
-  // Fetch volunteers associated with this event
+  // Buscar voluntários associados a este evento
   const { data: eventVolunteersData } = useList({
     resource: "event_volunteer",
     filters: [
@@ -55,7 +54,7 @@ export const EventEdit = () => {
       label: vol.user?.name ?? "Sem nome",
     })) ?? [];
 
-  // When event data is loaded, populate the fields
+  // Quando os dados do evento são carregados, popula os campos
   useEffect(() => {
     if (record) {
       setValue("eventtype", record.eventtype ?? "");
@@ -65,7 +64,7 @@ export const EventEdit = () => {
     }
   }, [record, setValue]);
 
-  // When associated volunteers are loaded, populate the selected ones
+  // Quando os voluntários associados são carregados, popula os selecionados
   useEffect(() => {
     if (eventVolunteersData?.data) {
       const ids = eventVolunteersData.data.map((ev: any) => ev.id_volunteer);
@@ -80,7 +79,7 @@ export const EventEdit = () => {
   };
 
   const onSubmit = async (formData: any) => {
-    // Update the event
+    // Atualiza o evento
     await onFinish({
       eventtype: formData.eventtype,
       startingdate: formData.startingdate,
@@ -95,15 +94,15 @@ export const EventEdit = () => {
 
     const currentIds = currentVolunteers.map((v) => v.id_volunteer);
 
-    // Volunteers removed
+    // Voluntários removidos
     const toDelete = currentVolunteers
       .filter((v) => !selectedVolunteers.includes(v.id_volunteer))
       .map((v) => v.id);
 
-    // Volunteers added
+    // Voluntários adicionados
     const toAdd = selectedVolunteers.filter((id) => !currentIds.includes(id));
 
-    // Delete the ones removed
+    // Eliminar os que saíram
     if (toDelete.length > 0) {
       deleteEventVolunteers({
         resource: "event_volunteer",
@@ -111,7 +110,7 @@ export const EventEdit = () => {
       });
     }
 
-    // Add the new ones
+    // Adicionar os novos
     toAdd.forEach((id_volunteer) => {
       createEventVolunteer({
         resource: "event_volunteer",

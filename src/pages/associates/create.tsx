@@ -69,7 +69,7 @@ export const AssociateCreate = () => {
           {
             onSuccess: () => {
               open?.({ type: "success", message: "Associado criado com sucesso!" });
-              push("/associates"); // redirects
+              push("/associates"); // redirecionar
               resolve(true);
             },
             onError: (error) => reject(error),

@@ -1,4 +1,5 @@
 // src/pages/volunteers/create.tsx
+import React from "react";
 import {
   Box,
   TextField,
@@ -20,8 +21,7 @@ export const VolunteerCreate = () => {
   const { mutate: createUser } = useCreate();
   const { mutate: createVolunteer } = useCreate();
   const { open } = useNotification();
-  const { push } = useNavigation(); // Manual redirection
-
+  const { push } = useNavigation(); // ⬅️ Redirecionamento
 
   const onSubmit = async (data: any) => {
     try {
@@ -65,7 +65,7 @@ export const VolunteerCreate = () => {
           {
             onSuccess: () => {
               open?.({ type: "success", message: "Voluntário criado com sucesso!" });
-              push("/volunteers"); // ⬅ Manual redirection to list
+              push("/volunteers"); // ⬅️ Redireciona para a lista
               resolve(true);
             },
             onError: (error) => reject(error),
@@ -143,3 +143,4 @@ export const VolunteerCreate = () => {
     </Create>
   );
 };
+ 

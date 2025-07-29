@@ -1,5 +1,4 @@
-// src/pages/volunteers/edit.tsx
-import React, { useEffect } from "react";
+ import React, { useEffect } from "react";
 import {
   Box,
   TextField,
@@ -8,16 +7,11 @@ import {
 } from "@mui/material";
 import { Edit } from "@refinedev/mui";
 import { useForm, Controller } from "react-hook-form";
-import {
-  useOne,
-  useUpdate,
-  useNotification,
-  useNavigation,
-} from "@refinedev/core";
+import { useOne, useUpdate, useNotification, useNavigation } from "@refinedev/core";
 import { useParams } from "react-router-dom";
 
 export const VolunteerEdit = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const {
     control,
@@ -40,6 +34,7 @@ export const VolunteerEdit = () => {
 
   const record = data?.data;
 
+  // Preenche formulário com dados existentes
   useEffect(() => {
     if (record) {
       setValue("name", record.user?.name ?? "");
@@ -60,18 +55,18 @@ export const VolunteerEdit = () => {
       open?.({ type: "error", message: "Dados inválidos: sem registo para atualizar." });
       return;
     }
-
     try {
+      // Atualizar tabela user
       await new Promise((resolve, reject) => {
         updateUser(
           {
             resource: "user",
             id: record.user.id,
             values: {
+              nif: data.nif,
               name: data.name,
               email: data.email,
               address: data.address,
-              nif: data.nif,
               cc: data.cc,
               phone: data.phone,
               dateofbirth: data.dateofbirth || null,
@@ -85,6 +80,7 @@ export const VolunteerEdit = () => {
         );
       });
 
+      // Atualizar tabela volunteers
       await new Promise((resolve, reject) => {
         updateVolunteer(
           {
@@ -98,7 +94,7 @@ export const VolunteerEdit = () => {
           {
             onSuccess: () => {
               open?.({ type: "success", message: "Voluntário atualizado com sucesso!" });
-              push("/volunteers");
+              push("/volunteers"); // aqui faz o redirect para a list
               resolve(true);
             },
             onError: (err) => reject(err),
@@ -119,12 +115,11 @@ export const VolunteerEdit = () => {
         children: "Guardar Alterações",
       }}
     >
-    <Box
-      component="form"
-      autoComplete="off"
-      sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-    >
-
+      <Box
+        component="form"
+        sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+        autoComplete="off"
+      >
         <Typography variant="h6">Dados Pessoais</Typography>
 
         <Controller
@@ -137,7 +132,8 @@ export const VolunteerEdit = () => {
               {...field}
               label="Nome"
               error={!!errors.name}
-              helperText={(errors as any)?.name?.message}
+              helperText={errors.name?.message as string}
+              fullWidth
             />
           )}
         />
@@ -152,7 +148,8 @@ export const VolunteerEdit = () => {
               {...field}
               label="Email"
               error={!!errors.email}
-              helperText={(errors as any)?.email?.message}
+              helperText={errors.email?.message as string}
+              fullWidth
             />
           )}
         />
@@ -162,7 +159,7 @@ export const VolunteerEdit = () => {
           control={control}
           defaultValue=""
           render={({ field }) => (
-            <TextField {...field} label="Morada" />
+            <TextField {...field} label="Morada" fullWidth />
           )}
         />
 
@@ -170,9 +167,7 @@ export const VolunteerEdit = () => {
           name="nif"
           control={control}
           defaultValue=""
-          render={({ field }) => (
-            <TextField {...field} label="NIF" />
-          )}
+          render={({ field }) => <TextField {...field} label="NIF" fullWidth />}
         />
 
         <Controller
@@ -180,7 +175,7 @@ export const VolunteerEdit = () => {
           control={control}
           defaultValue=""
           render={({ field }) => (
-            <TextField {...field} label="Cartão de Cidadão (CC)" />
+            <TextField {...field} label="Cartão de Cidadão (CC)" fullWidth />
           )}
         />
 
@@ -188,9 +183,7 @@ export const VolunteerEdit = () => {
           name="phone"
           control={control}
           defaultValue=""
-          render={({ field }) => (
-            <TextField {...field} label="Telefone" />
-          )}
+          render={({ field }) => <TextField {...field} label="Telefone" fullWidth />}
         />
 
         <Controller
@@ -203,6 +196,7 @@ export const VolunteerEdit = () => {
               label="Data de Nascimento"
               type="date"
               InputLabelProps={{ shrink: true }}
+              fullWidth
             />
           )}
         />
@@ -212,7 +206,12 @@ export const VolunteerEdit = () => {
           control={control}
           defaultValue="ativo"
           render={({ field }) => (
-            <TextField {...field} label="Estado" select>
+            <TextField
+              {...field}
+              label="Estado"
+              select
+              fullWidth
+            >
               <MenuItem value="ativo">Ativo</MenuItem>
               <MenuItem value="inativo">Inativo</MenuItem>
             </TextField>
@@ -228,7 +227,7 @@ export const VolunteerEdit = () => {
           control={control}
           defaultValue=""
           render={({ field }) => (
-            <TextField {...field} label="Tipo de Transporte" />
+            <TextField {...field} label="Tipo de Transporte" fullWidth />
           )}
         />
 
@@ -237,7 +236,7 @@ export const VolunteerEdit = () => {
           control={control}
           defaultValue=""
           render={({ field }) => (
-            <TextField {...field} label="Atividades" multiline rows={3} />
+            <TextField {...field} label="Atividades" multiline rows={3} fullWidth />
           )}
         />
       </Box>

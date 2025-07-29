@@ -2,6 +2,7 @@
 import { Stack, Typography } from "@mui/material";
 import { useShow } from "@refinedev/core";
 import {
+  DateField,
   EmailField,
   Show,
   TextFieldComponent as TextField,
@@ -63,7 +64,7 @@ export const VolunteerShow = () => {
         </Typography>
         <TextField value={record?.activities ?? ""} />
 
-       {/* Additional example if there are fields like status or other info */}
+        {/* Exemplo adicional se houver campos como status ou outras infos */}
         {record?.user?.status && (
           <>
             <Typography variant="body1" fontWeight="600">
